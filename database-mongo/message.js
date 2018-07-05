@@ -5,6 +5,7 @@ var message = mongoose.Schema({
 	From: { type : String, required : true },
 	to: { type : String, required : true },
 	content:{ type : String, required : true }
+	
 });
 
 
