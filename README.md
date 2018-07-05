@@ -23,11 +23,12 @@ ReduceRuseRecycle is a great optimal solution from two different sides:
 
 From within the root directory:
 
-sh
+```sh
 npm install
 npm run react-dev
 in another terminal npm run server-dev
-in another terminal npm run react-dev``` 
+in another terminal npm run react-dev
+``` 
 
 
 ## Usage
