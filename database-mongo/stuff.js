@@ -11,6 +11,4 @@ var stuff = mongoose.Schema({
 var Stuff = mongoose.model('Stuff', stuff);
 
 
-
-
 module.exports = Stuff;
