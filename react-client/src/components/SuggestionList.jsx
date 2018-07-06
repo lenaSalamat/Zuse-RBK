@@ -9,13 +9,10 @@ class SuggestionList extends Component {
       count: 0
     };
     
-    this.submit=this.submit.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
-
-
   submit(id,count) {
-    
     console.log(count)
     $.ajax({ 
       type:'PUT',
@@ -34,38 +31,34 @@ class SuggestionList extends Component {
   render(){
    return (
 
-    <div className="container">
-    
-    {this.props.suggestions.map(suggestion => 
-      <div id='table2'>    
+    <div className = "container">
+    { 
+      this.props.suggestions.map(suggestion => 
 
-      <div id ='table'id="suggestionPre">
-      <h1>{suggestion.name}</h1>
-      <pre className="pre">{suggestion.content}</pre>
+      <div id = 'table2'>    
+       <div id ='table'id = "suggestionPre">
+        <h1>{suggestion.name}</h1>
+         <pre className = "pre">{suggestion.content}</pre>
       
-      </div>
+       </div>
       
-      <div className="counter">
-      <p> likes {suggestion.count}</p>
-      <button id='like' type="button" onClick={()=> this.submit(suggestion._id,suggestion.count+1)}>❤️Like</button>
-      <button id='like' type="button" onClick={()=> this.submit(suggestion._id,suggestion.count-1)}>👎Unlike</button>
-      <br></br>
-      <br></br>
-      <br></br>
-      
-
+      <div className = "counter">
+       <p> likes {suggestion.count}</p>
+        <button id = 'like' type = "button" onClick = {()=> this.submit(suggestion._id , suggestion.count + 1)}>❤️Like</button>
+        <button id = 'like' type = "button" onClick = {()=> this.submit(suggestion._id , suggestion.count - 1)}>👎Unlike</button>
+         <br></br>
+         <br></br>
+         <br></br>
       </div>
       </div>
       
-      )}
-
-    
+      )
+    }
     </div>
 
     )
- }
+  }
 }
-
 
 export default SuggestionList;
 

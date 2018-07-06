@@ -1,24 +1,22 @@
-
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-class Home extends Component {
+ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       to:'',
       content:'',
       input:'',
-      ismessagehiddin:true
-      
+      ismessagehiddin:true  
     };
     
-    this.onChange=this.onChange.bind(this);
-    this.showmessagebox=this.showmessagebox.bind(this);
-    this.addMessage=this.addMessage.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.showmessagebox = this.showmessagebox.bind(this);
+    this.addMessage = this.addMessage.bind(this);
   }
 
-  onChange (e) {
+onChange (e) {
     this.setState({
      [e.target.name]: e.target.value 
    });
@@ -55,29 +53,31 @@ addMessage(to,content) {
 render(){
  return (
   <div>
-  
-  {this.props.extraa.map(item => 
-   <div className="container" id ='table2'>  
-   <div>  
-   
-   <h1>{item.select}</h1>    
-   <pre className="pre"><b>{item.post}</b></pre>
-   <h2 onClick={()=> this.showmessagebox(item.name,item.post)} >📤{item.name}</h2>
-   </div>
-   <br></br>
-   
-   <div>
+   {this.props.extraa.map(item =>
 
-   {this.state.ismessagehiddin ? null : (this.state.content==item.post)?<div><textarea id='home' onChange={this.onChange} value={this.state.input} name="input"/><button id='home1' onClick={()=> this.addMessage(this.state.to,this.state.input)}>send</button>  </div>:null}
+    <div className = "container" id = 'table2'>  
+     <div>  
+       <h1>{item.select}</h1>    
+       <pre className = "pre"><b>{item.post}</b></pre>
+       <h2 onClick = {()=> this.showmessagebox(item.name,item.post)} >📤{item.name}</h2>
+     </div>
+      <br></br>
+    <div>
+
+ {this.state.ismessagehiddin ? null : (this.state.content == item.post)?
+
+  <div>
+   <textarea id = 'home' onChange = {this.onChange} value = {this.state.input} name = "input"/>
+    <button id = 'home1' onClick = {()=> this.addMessage(this.state.to,this.state.input)}>send</button>  
+  </div>:null}
    
-   </div>
-   </div>
-   )}
+    </div>
+    </div>
+ )}
   
   </div>
-
   )
-}
+ }
 }
 
 export default Home;

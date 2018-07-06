@@ -41,7 +41,7 @@ Login() {
    data: this.state,
    success: (data) => {
     this.setState({data:data});
-    if(data===""){
+    if(data === ""){
      alert("incorrect password")
    }
  }
@@ -50,32 +50,29 @@ Login() {
 
 render(){
    //user page
-   if(this.state.data!==""){
+   if(this.state.data !== ""){
     return (
       <Router>
       
-      <Route path="/user" render={()=><Account name={this.state.states.userName} />}/>
+        <Route path = "/user" render = {()=><Account name = {this.state.states.userName} />}/>
       
       </Router>
       )
-  }
-    //Log in page
+  }//Log in page  
     else {
      return (
        <center>
-       <div id='Login'>
-       
-
-       <h1 style={{color:'white'}}>Log in</h1>
-       <br></br>
-       <br></br>
-       <input id='Logininput2' type="text" name="userName" placeholder="userName" value={this.state.userName} onChange={this.onChange}/><br/><br/><br/>
-       <input id='Logininput2'type="password" name="passWord" placeholder="passWord" value={this.state.passWord} onChange={this.onChange}/><br/>
-       <br/><br/><br/>
+        <div id = 'Login'>
+         <h1 style = {{color:'white'}}>Log in</h1>
+         <br></br>
+         <br></br>
+       <input id = 'Logininput2' type = "text" name = "userName" placeholder = "userName" value = {this.state.userName} onChange = {this.onChange}/><br/><br/><br/>
+       <input id = 'Logininput2'type = "password" name = "passWord" placeholder = "passWord" value = {this.state.passWord} onChange = {this.onChange}/><br/>
+         <br/><br/><br/>
        <Router>
-       <Link to="/user"><button id="signinbutton" onClick={this.Login} >Login</button></Link>
+         <Link to = "/user"><button id = "signinbutton" onClick = {this.Login} >Login</button></Link>
        </Router>
-       </div>
+        </div>
        </center>
        )
    }
